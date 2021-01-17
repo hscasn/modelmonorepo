@@ -43,7 +43,7 @@ func getAllUsersHandler(log logger.Interface, usersServiceURL string) http.Handl
 	return apihandlers.SimpleHandler(log, &body, func() (*apiresponse.ResponseData, error) {
 		req := usersAPI.RequestGetUsers{}
 		res := getAllUsersAPIResponse{}
-		err := network.PostCloudRunCall(usersServiceURL, "v1/allUsers", req, &res)
+		err := network.PostCloudRunCall(log, usersServiceURL, "v1/allUsers", req, &res)
 		if err != nil {
 			return nil, fmt.Errorf("external api call failed: %w", err)
 		}
