@@ -9,7 +9,7 @@ import (
 
 	"github.com/go-chi/chi"
 	"github.com/hscasn/modelmonorepo/lib/go/httpserver/apiresponse"
-	"github.com/hscasn/modelmonorepo/modules/model/pkg/api"
+	"github.com/hscasn/modelmonorepo/modules/_model/pkg/api"
 )
 
 // New will bind this API to an exiting router

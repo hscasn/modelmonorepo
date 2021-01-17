@@ -8,16 +8,13 @@ import (
 	"strings"
 
 	"cloud.google.com/go/compute/metadata"
+	"github.com/sirupsen/logrus"
 )
 
+const cloudRunURLNeedle = "a.run.app"
+
 // PostCloudRunCall is a POST call to a CloudRun service
-func PostCloudRunCall(serviceURL, endpoint string, requestBody, responseBody interface{}) error {
-	// query the id_token with ?audience as the serviceURL
-	tokenURL := fmt.Sprintf("/instance/service-accounts/default/identity?audience=%s", serviceURL)
-	idToken, err := metadata.Get(tokenURL)
-	if err != nil {
-		return fmt.Errorf("metadata.Get: failed to query id_token: %w", err)
-	}
+func PostCloudRunCall(log *logrus.Entry, serviceURL, endpoint string, requestBody, responseBody interface{}) error {
 	bodyb, err := json.Marshal(requestBody)
 	if err != nil {
 		return fmt.Errorf("error marshalling request body: %w", err)
@@ -26,7 +23,17 @@ func PostCloudRunCall(serviceURL, endpoint string, requestBody, responseBody int
 	if err != nil {
 		return fmt.Errorf("error creating request for post cloud run call: %w", err)
 	}
-	req.Header.Add("Authorization", fmt.Sprintf("Bearer %s", idToken))
+	if strings.Contains(serviceURL, cloudRunURLNeedle) {
+		// query the id_token with ?audience as the serviceURL
+		tokenURL := fmt.Sprintf("/instance/service-accounts/default/identity?audience=%s", serviceURL)
+		idToken, err := metadata.Get(tokenURL)
+		if err != nil {
+			return fmt.Errorf("metadata.Get: failed to query id_token: %w", err)
+		}
+		req.Header.Add("Authorization", fmt.Sprintf("Bearer %s", idToken))
+	} else {
+		log.Infof("detected non-CloudRun url: %s; authentication will be skipped", serviceURL)
+	}
 	res, err := http.DefaultClient.Do(req)
 	if err != nil {
 		return fmt.Errorf("error performing request for post cloud run call: %w", err)

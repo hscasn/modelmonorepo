@@ -4,8 +4,8 @@ import (
 	"github.com/hscasn/modelmonorepo/lib/go/httpserver/health"
 	"github.com/hscasn/modelmonorepo/lib/go/httpserver/logger"
 	"github.com/hscasn/modelmonorepo/lib/go/httpserver/server"
-	"github.com/hscasn/modelmonorepo/modules/model/config"
-	"github.com/hscasn/modelmonorepo/modules/model/internal/api"
+	"github.com/hscasn/modelmonorepo/modules/_model/config"
+	"github.com/hscasn/modelmonorepo/modules/_model/internal/api"
 )
 
 func main() {
