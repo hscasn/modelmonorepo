@@ -1,3 +1,3 @@
-module github.com/hscasn/modelmonorepo/modules/eveksbot_auth
+module github.com/hscasn/modelmonorepo/modules/model
 
 go 1.15
