@@ -1,0 +1,19 @@
+all: &all
+  module_name: &module_name main
+  project: &project hscasn
+  project_id: &project_id hscasn
+  region: us-central1
+  allow_unauthenticated: false
+
+env_all: &env_all
+  MODULE_NAME: *module_name
+  PROJECT: *project
+  PROJECT_ID: *project_id
+  SERVICE_URL: 
+
+prod:
+  <<: *all
+  max_instances: 1
+  service_account: main@hscasn.iam.gserviceaccount.com 
+  env:
+    <<: *env_all
