@@ -3,17 +3,18 @@ all: &all
   project: &project hscasn
   project_id: &project_id hscasn
   region: us-central1
-  allow_unauthenticated: false
+  allow_unauthenticated: true
 
 env_all: &env_all
   MODULE_NAME: *module_name
   PROJECT: *project
   PROJECT_ID: *project_id
-  SERVICE_URL: 
 
 prod:
   <<: *all
   max_instances: 1
-  service_account: main@hscasn.iam.gserviceaccount.com 
+  service_account: mainsvc@hscasn.iam.gserviceaccount.com 
+  SERVICE_URL: https://main-rvf4od4b5a-uc.a.run.app
   env:
     <<: *env_all
+    USERS_SERVICE_URL: https://users-rvf4od4b5a-uc.a.run.app

@@ -51,7 +51,7 @@ func deployAll(plans deployPlan) error {
 		platform := t.Field(i).Name
 		for k := 0; k < deployables.Len(); k++ {
 			deployable := deployables.Index(k).Interface().(deployer)
-			fmt.Printf("Deploying %s %s", platform, deployable.Describe())
+			fmt.Printf("Deploying %s %s\n", platform, deployable.Describe())
 			if err := deployable.Deploy(); err != nil {
 				return fmt.Errorf("could not deploy %s %s", platform, deployable.Describe())
 			}
