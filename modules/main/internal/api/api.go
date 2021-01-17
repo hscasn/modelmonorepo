@@ -33,20 +33,25 @@ func defaultHandler(log logger.Interface) http.HandlerFunc {
 	})
 }
 
+type getAllUsersAPIResponse struct {
+	apiresponse.ResponseNoResult
+	Result usersAPI.ResponseGetUsers `json:"result"`
+}
+
 func getAllUsersHandler(log logger.Interface, usersServiceURL string) http.HandlerFunc {
 	body := api.RequestAllUsers{}
 	return apihandlers.SimpleHandler(log, &body, func() (*apiresponse.ResponseData, error) {
-		req := usersAPI.RequestAllUsers{}
-		res := usersAPI.ResponseAllUsers{}
+		req := usersAPI.RequestGetUsers{}
+		res := getAllUsersAPIResponse{}
 		err := network.PostCloudRunCall(usersServiceURL, "v1/allUsers", req, &res)
 		if err != nil {
 			return nil, fmt.Errorf("external api call failed: %w", err)
 		}
 		result := api.ResponseAllUsers{
-			Users: make(api.User, len(res.Users)),
+			Users: make([]api.User, len(res.Result.Users)),
 		}
-		for i, user := range res.Users {
-			result.Users[i] = api.User{name: user.Name}
+		for i, user := range res.Result.Users {
+			result.Users[i] = api.User{Name: user.Name}
 		}
 		return &apiresponse.ResponseData{
 			Result: result,

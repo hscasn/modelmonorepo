@@ -2,7 +2,7 @@ SHELL := /usr/bin/env bash
 
 MODULE_NAME = main
 PUBLISH_PROJECT = hscasn
-VERSION = $(shell date +"%M%H%m%d%y")
+VERSION = 1.0.0
 IMAGE_TAG = gcr.io/${PUBLISH_PROJECT}/${MODULE_NAME}:${VERSION}
 
 .PHONY: test

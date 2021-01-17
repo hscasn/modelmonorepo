@@ -39,6 +39,7 @@ func PostCloudRunCall(serviceURL, endpoint string, requestBody, responseBody int
 	if err != nil {
 		return fmt.Errorf("error unmarshaling response body from post cloud run call: %w", err)
 	}
+
 	if res.StatusCode != http.StatusOK {
 		return fmt.Errorf("post cloud run call responded with status code: %d. body: %s", res.StatusCode, string(bd))
 	}
