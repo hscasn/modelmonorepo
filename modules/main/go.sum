@@ -123,8 +123,12 @@ github.com/hscasn/modelmonorepo/lib/go/httpserver v0.0.0-20210117235337-ffb774cd
 github.com/hscasn/modelmonorepo/lib/go/httpserver v0.0.0-20210117235337-ffb774cd1249/go.mod h1:nZnfRmuI8/E59V5f+3NNAcWiSa+8LbSj0gOj0WxXzE4=
 github.com/hscasn/modelmonorepo/lib/go/network v0.0.0-20210117231250-ecaa6dade349 h1:QBYSXn+hbwnpKQSfl5VpuaBZuVOHCq97tYNm7AV5mow=
 github.com/hscasn/modelmonorepo/lib/go/network v0.0.0-20210117231250-ecaa6dade349/go.mod h1:hy9/p/6vREnSOv0aIo5O18w3URKIqVsUVXgByj2+LO8=
+github.com/hscasn/modelmonorepo/lib/go/network v0.0.0-20210117235337-ffb774cd1249 h1:H7LP8RMFeaq8//ROItH7is4SWOIj/zv106qwUr9YhbU=
+github.com/hscasn/modelmonorepo/lib/go/network v0.0.0-20210117235337-ffb774cd1249/go.mod h1:hy9/p/6vREnSOv0aIo5O18w3URKIqVsUVXgByj2+LO8=
 github.com/hscasn/modelmonorepo/modules/users v0.0.0-20210117231250-ecaa6dade349 h1:/JQfpv4gn/ZhmnBW1G3HSeBAU+cxdRWr5Du6DPDrCwc=
 github.com/hscasn/modelmonorepo/modules/users v0.0.0-20210117231250-ecaa6dade349/go.mod h1:2EEnmYkHq6ttzost2ddTJ57F6Fa0gQwke+mSFany8Sc=
+github.com/hscasn/modelmonorepo/modules/users v0.0.0-20210117235337-ffb774cd1249 h1:ORUyR/6dnq4PIDfnIbU0FX0CVG2nw/nv/WwzEod3Tys=
+github.com/hscasn/modelmonorepo/modules/users v0.0.0-20210117235337-ffb774cd1249/go.mod h1:2EEnmYkHq6ttzost2ddTJ57F6Fa0gQwke+mSFany8Sc=
 github.com/ianlancetaylor/demangle v0.0.0-20181102032728-5e5cf60278f6/go.mod h1:aSSvb/t6k1mPoxDqO4vJh6VOCGPwU4O0C2/Eqndh1Sc=
 github.com/ianlancetaylor/demangle v0.0.0-20200824232613-28f6c0f3b639/go.mod h1:aSSvb/t6k1mPoxDqO4vJh6VOCGPwU4O0C2/Eqndh1Sc=
 github.com/jinzhu/inflection v1.0.0 h1:K317FqzuhWc8YvSVlFMCCUb36O/S9MCKRDI7QkRKD/E=
